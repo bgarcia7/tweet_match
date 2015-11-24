@@ -1,0 +1,195 @@
+body{
+	color:#525252;
+}
+
+a{
+	color:#C5C5C5;
+}
+
+a:hover{
+	color: #5AA8DF
+}
+
+ul{
+	list-style:none;
+	text-indent: none;
+}
+
+li{
+	margin-top:10px;
+	font-size:24px;
+	font-weight:bold;
+	text-indent: none;
+}
+
+div{
+	word-wrap:break-word;
+}
+
+.breakdown_header h1{
+	margin-top:60px;
+}
+
+h1{
+	font-size:60px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.stat{
+	margin-top:30px;
+}
+
+.row{
+	text-align:center;
+}
+
+.sm-logo{
+	width:80%;
+}
+
+.breakdown_header{
+	text-align:center;
+}
+
+.header{
+	margin-top:20px;
+}
+
+.container{
+	margin-top:40px;
+}
+
+.input-xlarge{
+	width:100%;
+	font-size:30px;
+	padding:10px;
+}
+
+.firstGraph{
+	margin-left:10%;
+}
+
+.lastGraph{
+	margin-right:10%;
+}
+
+.search{
+	margin-top:30px;
+	margin-bottom:30px;
+}
+
+.negative{
+	color: #FC291C;
+}
+
+.positive{
+	color: #5AA8DF;
+}
+
+.profile_pic{
+	margin-top:10px;
+	background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    top:200px;
+    width: 75px;
+    height: 75px;
+}
+
+.sent_face{
+	font-size:72px;
+	text-align:center;
+}
+
+.odd{
+	background-color:#F5F5F5;
+	padding:20px;
+	color: #5AA8DF;
+}
+
+.section{
+	font-size:48px;
+	font-weight:bold;
+}
+
+.instructions{
+	font-size:16px;
+	color:#C5C5C5;
+}
+
+.errors{
+	margin-top:20px;
+	color:red;
+}
+
+.tweeter_options{
+	margin-top:30px;
+	color:#C5C5C5;
+}
+
+.hidden{
+	display:none;
+}
+
+.sliders{
+    position: relative;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 375px;
+}
+
+.slider{
+  background: -webkit-linear-gradient(left, rgba(252,41,28,0.5), rgba(90,168,223,0.8)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, rgba(252,41,28,0.5), rgba(90,168,223,0.8)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, rgba(252,41,28,0.5), rgba(90,168,223,0.8)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, rgba(252,41,28,0.5), rgba(90,168,223,0.8)); /* Standard syntax */
+  font-size:200%;
+}
+
+.bottom{
+	margin-bottom:60px;
+}
+
+.api_div{
+	margin-bottom:30px;
+}
+
+#api_key_label{
+	padding-top:5px;
+}
+
+div .about_row{
+	margin-top:30px;
+	text-align:left;
+}
+
+#twitter_handle{
+	margin-bottom:10px;
+	margin-top:30px;
+	color:#C5C5C5;
+	font-weight:bold;
+}
+
+#twitter_handle_index{
+	margin-top:0px;
+	color:#C5C5C5;
+	font-weight:bold;
+}
+
+.sn1{
+	float:right;
+}
+
+.sn2{
+	float:left;
+}
+
+#index_about{
+	padding-right:20px;
+}
+
+.tooltip_pic:hover{
+	cursor:pointer;
+}
+
