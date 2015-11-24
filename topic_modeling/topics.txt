@@ -1,0 +1,102 @@
+0:Military
+1:Entertainment
+2:Canadian Hockey
+3:Religion
+4:CSS
+5:UNK
+6:Germany
+7:UNK
+8:Tropics
+9:Religion
+10:Spanish
+11:Italy
+12:Education and Academia
+13:Slavic Nations
+14:Nature 
+15:Natural Resources
+16:UNK
+17:UNK
+18:UNK
+19:India
+20:Medicine
+21:Legal Issues
+22:Sports
+23:UNK
+24:History
+25:History
+26:Cities
+27:Radio & T.V.
+28:UNK
+29:Sports
+30:Psychology
+31:Nature
+32:Korea
+33:Sports
+34:Technology
+35:Technology
+36:Nordic Nations
+37:United States
+38:UNK
+39:Middle East
+40:UNK
+41:Technology
+42:Slavic Nations
+43:Publications
+44:China
+45:Architecture
+46:UNK
+47:UNK
+48:Music
+49:UNK
+50:France
+51:Sports
+52:Politics
+53:UNK
+54:UNK
+55:Slavic Nations
+56:Celebrities
+57:Soccer
+58:Agriculture
+59:Space
+60:Art
+61:UNK
+62:Pop Culture
+63:Business
+64:Urban Trends
+65:United Kingdom
+66:UNK
+67:Vehicles
+68:Latin Nations
+69:Judaism
+70:Politics
+71:Nationality
+72:Asia
+73:Religion
+74:Africa
+75:Sports
+76:Nature
+77:Europe
+78:Europe
+79:Natural Resources
+80:Physics
+81:South Asia
+82:Japan
+83:Music
+84:Countryside
+85:South Asia
+86:Food
+87:Food
+88:Celebrities
+89:Mathematics
+90:American Culture
+91:Nature
+92:Nature
+93:Nature
+94:UNK
+95:Europe
+96:Japan
+97:United Kingdom
+98:UNK
+99:Eastern Europe
+
+
