@@ -1,0 +1,69 @@
+{% extends "base.html.jinja2" %}
+{% block title %} Twitter State {% endblock %}
+
+{% block includes %}
+
+{% endblock %}
+
+{% block contents %}
+
+<div class="row odd">
+    <div class="col-md-1">
+            <a href="/"><img class="sm-logo" src="/static/img/TweetMatcher.png"></a>
+    </div>
+    <div class="col-md-offset-10 col-md-1">
+        <a href="/"><b>Tweet Matcher</b></a>
+    </div>
+</div>
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        <h1> About Tweet Matcher </h1>
+    </div>
+</div>
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        Tweet matcher combines <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis </a>with <a href="https://en.wikipedia.org/wiki/Topic_model">topic modeling</a> to better understand twitter user’s interests and emotions. It analyzes tweets to visualize sentiments and topics represented in said tweets and assign a sentiment and topic similarity score between pairs of users.
+    </div>
+</div>
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        <h2> Sentiment Analysis </h2>
+    </div>
+</div>
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        The sentiment analysis engine is primarily <a href="https://github.com/bgarcia7/alchemyapi-recipes-twitter/blob/master/README.md">Alchemy’s Twitter Recipe API</a>. With some heavy massaging, some very meaningful results were collected. </br></br>
+
+        This data was used to visualize strong positive and negative associations with other entities on twitter. Word clouds were generated with Andreas Mueller’s <a href="https://github.com/amueller/word_cloud">WordCloud API</a>.</br></br>
+
+        Similarity score is based off of the <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">KL Divergence</a> between normalized probability distributions for each user’s tweet sentiment. 
+    </div>
+</div>
+
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        <h2> Topic Analysis </h2>
+    </div>
+</div>
+
+<div class="row about_row">
+    <div class="col-md-offset-3 col-md-6">
+        The topic analysis was done using gensim’s <a href="https://radimrehurek.com/gensim/models/ldamodel.html">LDAModel</a> and training it on the entirety of english wikipedia articles. The names assigned to each of the topics was done quite quickly... and so if anyone wants to take some time to look through relevant words in each topic and better help me classify them, LET ME KNOW :D. </br></br>
+
+        Topic similarity is based off of <a href="https://en.wikipedia.org/wiki/Cosine_similarity">cosine similarity</a> between topic probability distributions for each user.       
+    </div>
+</div>
+
+<div class="row ">
+    <div id="twitter_handle" class="col-md-offset-3 col-md-6">
+        <h3>@__BCG__</h3>
+    </div>
+</div>  
+
+ 
+{% endblock %}

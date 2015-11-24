@@ -1,0 +1,310 @@
+{% extends "base.html.jinja2" %}
+{% block title %} Twitter State {% endblock %}
+
+{% block includes %}
+
+{% endblock %}
+
+{% block navbar_left %}
+
+{% endblock %}
+
+{% block navbar_right %}
+{% endblock %}
+
+{% block contents %}
+    
+    <div class="row odd">
+        <div class="col-md-1">
+                <a href="/"><img class="sm-logo" src="/static/img/TweetMatcher.png"></a>
+        </div>
+        <div class="col-md-offset-1 col-md-8">
+            <h1> Tweet Analysis </h1>
+        </div>
+        <div class="col-md-offset-1 col-md-1">
+            <a href="/about"><b>About</b></a>
+        </div>
+    </div>
+
+    <div class="row stat">
+        <div class="col-md-offset-1 col-md-4">
+            <img class="sn1 profile_pic" src="{{stats[user_name_1]['profile_img_url']}}">
+        </div>
+        <div class="col-md-offset-2 col-md-4">
+            <img class="sn2 profile_pic" src="{{stats[user_name_2]['profile_img_url']}}">
+        </div>
+    </div>
+     
+    <div class="row bottom">
+        <div class="col-md-offset-1 col-md-5">
+            <h1 class="sn1"><b>@{{user_name_1}}</b></h1> 
+        </div>
+        <div class="col-md-5">
+            <h1 class="sn2"><b>@{{user_name_2}}</b></h1>
+        </div>
+    </div>
+
+     
+    <div id="tweet_topics" class="row stat odd">
+        <div class="section col-md-offset-2 col-md-8">
+            Top Tweet Topics
+        </div>
+    </div>
+
+    <div class="row">
+        <span class="instructions"></br>In no particular order</span>
+    </div>
+
+    <div class="row stat bottom">
+        <div class="col-md-offset-2 col-md-4">
+            <ul>
+                {% for topic in stats[user_name_1]['top_topics'] %}
+                    {% if topic != 'UNK' %}
+                    <li>{{topic}}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <ul>
+                {% for topic in stats[user_name_2]['top_topics'] %}
+                    {% if topic != 'UNK' %}
+                    <li>{{topic}}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="row stat odd">
+        <div class="section col-md-offset-2 col-md-8">
+            Users and Hashtags
+        </div>
+    </div>
+
+    <div class="row">
+        <span class="instructions"></br>The bigger a word is, the stronger feelings you've associated with the entity. BLUE is (+) and RED is (-)</span>
+    </div>
+    <div class="row stat">
+        <div class="col-md-offset-1 col-md-5">
+            {% if stats[user_name_1]['pos_wc'] == True %}
+                <img src="/static/img/pos_wordcloud_{{user_name_1}}.png">
+            {% else %}
+                Whoops, you don't tweet @ very many users or hashtags
+            {% endif %}
+        </div>
+        <div class="col-md-5">
+            {% if stats[user_name_2]['pos_wc'] == True %}
+                <img src="/static/img/pos_wordcloud_{{user_name_2}}.png">
+            {% else %}
+                Whoops, you don't tweet @ very many users or hashtags
+            {% endif %}
+        </div>
+    </div>
+    <div class="row stat bottom">
+        <div class="col-md-offset-1 col-md-5">
+            {% if stats[user_name_1]['neg_wc'] == True %}
+                <img src="/static/img/neg_wordcloud_{{user_name_1}}.png">
+            {% else %}
+                Whoops, you don't tweet @ very many users or hashtags
+            {% endif %}
+        </div>
+        <div class="col-md-5">
+            {% if stats[user_name_2]['neg_wc'] == True %}
+                <img src="/static/img/neg_wordcloud_{{user_name_2}}.png">
+            {% else %}
+                Whoops, you don't tweet @ very many users or hashtags
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row stat odd">
+        <div class="section col-md-offset-2 col-md-8">
+            Charts and Such 
+        </div>
+    </div>
+
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_raw_{{user_name_1}}.png">
+        </div>
+        <div class="col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_raw_{{user_name_2}}.png">
+        </div>
+    </div>
+   
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_kernel_{{user_name_1}}.png">
+        </div>
+        <div class="col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_kernel_{{user_name_2}}.png">
+        </div>
+    </div>
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_volume_{{user_name_1}}.png">
+        </div>
+        <div class="col-md-4">
+            <img width="100%" src="/static/img/twitter_sentiment_volume_{{user_name_2}}.png">
+        </div>
+    </div>
+
+    <div class="row stat odd">
+        <div class="section col-md-offset-2 col-md-8">
+            Overall Sentiment
+        </div>
+    </div>
+
+    <div class="row">
+        <span class="instructions"></br>-1 to 1</span>
+    </div>
+
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-4">
+            <h1>
+                <b>{{stats[user_name_1]['sent_mean']}}</b>
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <h1>               
+                <b>{{stats[user_name_2]['sent_mean']}}</b>
+            </h1>
+        </div>
+    </div>
+    
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-4 sent_face">
+            <span class="{{stats[user_name_1]['sent']}}">{{stats[user_name_1]['emoticon']}}</span>
+        </div>
+        <div class="col-md-4 sent_face">
+            <span class="{{stats[user_name_2]['sent']}}">{{stats[user_name_2]['emoticon']}}</span>
+        </div>
+    </div>
+
+    <div class="row stat bottom">
+        <div class="col-md-offset-2 col-md-4">
+            <h2> Standard Deviation: <b>{{stats[user_name_1]['sent_std']}}</b></h2>
+        </div>
+        <div class="col-md-4">
+            <h2> Standard Deviation: <b>{{stats[user_name_2]['sent_std']}}</b></h2>
+        </div>
+    </div>
+
+
+    <div id="similarity" class="row stat odd">
+        <div class="col-md-offset-2 col-md-8">
+            <h1> Similarity Scoring </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <span class="instructions"></br>Topic score is based off of cosine similarity between topic probability distributions. Sentiment score uses KL-Divergence between sentiment probability density functions.</span>
+        </div>
+    </div>
+    
+    <div class="row stat">
+        <div class="col-md-offset-2 col-md-8">
+            <h2> 
+                Topic Similarity: <b>{{stats['compatability']['topic_similarity']}}%</b></h2>
+            <span id="topic_score" class="hidden">{{stats['compatability']['topic_similarity']}}</span>
+        </div>
+    </div> 
+
+
+    <div class="row stat">
+
+        <div class="col-md-offset-4 col-md-4">
+            <div class="sliders">
+                <div class="slider" id="topic_slider">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row stat">
+        <div class="col-md-offset-1 col-md-2">
+            <h3> <b>Apples and Oranges </b></h3>
+        </div>
+        <div class="col-md-offset-6 col-md-2">
+            <h3> <b>Peas in a Pod </b></h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <h2> 
+                Sentiment Similarity: <b>{{stats['compatability']['sentiment_similarity']}}%</b>
+            </h2>
+            <span id="sentiment_score" class="hidden">{{stats['compatability']['sentiment_similarity']}}</span>
+        </div>
+    </div>
+
+    <div class="row stat bottom">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="sliders">
+                <div class="slider" id="sentiment_slider">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row stat odd">
+        <div class="section col-md-offset-2 col-md-8">
+            Try Again?
+        </div>
+    </div>
+    
+    {% if tweeters == 1 %}
+    <div class="row" id="one_tweeter">
+    {% else %}
+    <div class="row hidden" id="one_tweeter">
+    {% endif %}
+        <div class="container col-md-offset-4 col-md-4">
+            <input type="text" id="twitter_name_1A" class="input-xlarge user_names" placeholder="@user_name_1" aria-describedby="basic-addon2">
+        </div>
+    </div>
+
+    {% if tweeters == 1 %}
+    <div class="hidden row" id="two_tweeters">
+    {% else %}
+    <div class="row" id="two_tweeters">
+    {% endif %}
+        <div class="container col-md-offset-3 col-md-3">
+            <input type="text" id="twitter_name_1B" class="input-xlarge user_names" placeholder="@user_name_1" aria-describedby="basic-addon2">
+        </div>
+        <div class="container col-md-3">
+            <input type="text" id="twitter_name_2" class="input-xlarge user_names" placeholder="@user_name_2" aria-describedby="basic-addon2">
+        </div>
+    </div>
+
+    <div class="row tweeter_options">
+        <form role="form">
+            {% if tweeters == 1 %}
+            <label class="radio-inline">
+              <input id="one_tweeter_option" checked="checked" type="radio" name="num_tweeters">One Tweeter
+            </label>
+            <label class="radio-inline">
+              <input id="two_tweeter_option" type="radio" name="num_tweeters">Two Tweeters
+            </label>
+            {% else %}
+            <label class="radio-inline">
+              <input id="one_tweeter_option" type="radio" name="num_tweeters">One Tweeter
+            </label>
+            <label class="radio-inline">
+              <input id="two_tweeter_option" checked="checked" type="radio" name="num_tweeters">Two Tweeters
+            </label>
+            {% endif %}
+        </form>
+    </div>
+
+    <div class="row ">
+        <div id="twitter_handle" class="col-md-offset-3 col-md-6">
+            <h3>@__BCG__</h3>
+        </div>
+    </div>  
+
+  
+
+{% endblock %}

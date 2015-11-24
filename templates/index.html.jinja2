@@ -1,0 +1,73 @@
+{% extends "base.html.jinja2" %}
+{% block title %} Twitter State {% endblock %}
+
+{% block includes %}
+
+{% endblock %}
+
+{% block navbar_left %}
+
+{% endblock %}
+
+{% block navbar_right %}
+{% endblock %}
+
+{% block contents %}
+    
+    <div id="index_about" class="stat row">
+        <div class="col-md-offset-11 col-md-1">
+            <a href="about"><b>About</b></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="header col-md-offset-4 col-md-4">
+            <img src="/static/img/TweetMatcher.png">
+        </div>
+    </div>
+
+    {% if tweeters == 1 %}
+    <div class="row" id="one_tweeter">
+    {% else %}
+    <div class="row hidden" id="one_tweeter">
+    {% endif %}
+        <div class="container col-md-offset-4 col-md-4">
+            <input type="text" id="twitter_name_1A" class="input-xlarge user_names" placeholder="@user_name_1" aria-describedby="basic-addon2">
+        </div>
+    </div>
+
+    {% if tweeters == 1 %}
+    <div class="hidden row" id="two_tweeters">
+    {% else %}
+    <div class="row" id="two_tweeters">
+    {% endif %}
+        <div class="container col-md-offset-3 col-md-3">
+            <input type="text" id="twitter_name_1B" class="input-xlarge user_names" placeholder="@user_name_1" aria-describedby="basic-addon2">
+        </div>
+        <div class="container col-md-3">
+            <input type="text" id="twitter_name_2" class="input-xlarge user_names" placeholder="@user_name_2" aria-describedby="basic-addon2">
+        </div>
+    </div>
+
+    <div class="row tweeter_options">
+        <form role="form">
+            {% if tweeters == 1 %}
+            <label class="radio-inline">
+              <input id="one_tweeter_option" checked="checked" type="radio" name="num_tweeters">One Tweeter
+            </label>
+            <label class="radio-inline">
+              <input id="two_tweeter_option" type="radio" name="num_tweeters">Two Tweeters
+            </label>
+            {% else %}
+            <label class="radio-inline">
+              <input id="one_tweeter_option" type="radio" name="num_tweeters">One Tweeter
+            </label>
+            <label class="radio-inline">
+              <input id="two_tweeter_option" checked="checked" type="radio" name="num_tweeters">Two Tweeters
+            </label>
+            {% endif %}
+        </form>
+    </div>
+
+    </div>
+{% endblock %}

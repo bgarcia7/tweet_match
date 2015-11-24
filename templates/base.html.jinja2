@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block head %}
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"></link>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>include javascript files -->
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+
+    <script src="../../static/js/bootstrap.js"></script>
+    <script src="../../static/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../../static/css/jquery-ui.min.css"></link>
+    <script src="../../static/js/get_tweets.js"></script> 
+    <link rel="stylesheet" href="../../static/css/style.css"></link>
+
+
+    <!-- unique includes for this html file only -->
+    {% block includes %}{% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+    <!--<div class="row stat api_div">
+         <div class="col-md-2">
+            <a href="" data-toggle="tooltip" data-placement="right" title="The API Key used to provide a part of the twitter analysis allows a limited number of calls per user. If the default key is out, you can still use the service by using your own API key. You have to put it in every time you make a new request to analyze a twitter account. We don't store your key! You can get your own at alchemyapi.com/api/register"><img width="20px" id="api_info" src="/static/img/help.png"></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" id="add_api_key" class="btn btn-default "aria-haspopup="true" aria-expanded="false">Add API Key</button>
+        </div>
+        <div class="col-md-1" id="api_key_label"><b></b>
+        </div>
+        <div class="col-md-offset-1 col-md-4 hidden" id="loading_message">
+            <span class="negative"> This will take just a few moments . . .</span>
+        </div> 
+    </div> -->
+{% block body %}
+    {% block navbar %}
+    {% endblock %}
+    
+
+
+    <div class="content_container">
+        {% block contents %}
+
+
+        {% endblock %}
+        <div class="col-md-offset-3 col-md-6 row errors">
+            {% for error in errors %}
+                <p> {{error}} </p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+</body>
+</html>
